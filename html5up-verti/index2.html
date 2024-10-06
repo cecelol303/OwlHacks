@@ -1,0 +1,152 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>STDSGO.com</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="is-preload left-sidebar">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<div id="header-wrapper">
+					<header id="header" class="container">
+
+						<!-- Logo -->
+							<div id="logo">
+								<h1><a href="index.html">STDSGO</a></h1>
+								<span>we're here to help</span>
+							</div>
+	<!DOCTYPE HTML>
+	<html lang="en">
+		<div id="content">
+			<section class="last">
+				<h2>Assesment</h2>
+		<title>STDSGO - Quick Assessment</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<style>		
+			html, body {
+				margin: 0;
+				padding: 0;
+				height: 100%; 
+				display: flex;
+				text-align: center;
+				align-items: center;
+				font-family: Arial, sans-serif;
+				background-color: #f9f9f9;
+			}
+	
+			#assessment-wrapper {
+				padding: 20px;
+				max-width: 600px;
+				width: 100%; /* Responsive width */
+				background: #fff;
+				border-radius: 8px;
+				box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+				align-items: center;
+				margin-left: auto;
+				margin-right: auto;
+			}
+	
+			h2 {
+				margin-bottom: 20px;
+				text-align: center;
+			}
+	
+			select, button {
+				width: 100%;
+				padding: 10px;
+				margin-bottom: 10px;
+				border-radius: 4px;
+				border: 1px solid #ccc;
+		
+			}
+	
+			#result {
+				margin-top: 20px;
+				padding: 10px;
+				border: 1px solid #ccc;
+				border-radius: 4px;
+				background: #f1f1f1;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="assessment-wrapper">
+			<h2>Let's find you a clinic!</h2>
+			<label for="insurance">What's your insurance?</label>
+			<select id="insurance">
+				<option value="">Select an option...</option>
+				<option value="Aetna">Aetna</option>
+				<option value="Blue Cross">Blue Cross</option>
+				<option value="United Healthcare">United Healthcare</option>
+				<option value="Independence">Independence</option>
+				<option value="Humana">Humana</option>
+				<option value="Cigna">Cigna</option>
+				<option value="none">No insurance</option>
+			</select>
+	
+			<label for="college">What college do you go to?</label>
+			<select id="college">
+				<option value="">Select an option...</option>
+				<option value="Temple">Temple University</option>
+				<option value="Lasalle">Lasalle University</option>
+				<option value="CCP">Community College of Philadelphia</option>
+				<option value="Drexel">Drexel</option>
+				<option value="St Joe">St Joseph's Universit</option>
+				<option value="PU">Philadelphia University</option>
+			</select>
+	
+			<button onclick="findclincs()">Assess</button>
+	
+			<div id="result" style="display:none;"></div>
+		</div>
+	
+		<script>
+
+
+				function findclincs() {
+					const clinics = [
+				{ name: "myDoc Urgent Care", insurances: ["Aetna", "Blue Cross"], school: ["Temple", ],address: "1501 N Broad St" },
+				{ name: "Jefferson Urgent Care", insurances: ["Aetna"], school: ["Temple", "Drexel"],address: "2021 Chestnut St" },
+				{ name: "Vybe urgent care", insurances: ["Blue Cross", "United Healthcare"], school: ["Lasalle", "Drexel" ],address: "1217 S Broad St" },
+				{ name: "Jefferson Urgent Care", insurances: ["United Healthcare", "Independence"],school: ["Lasalle", "Drexel" ], address: "700 Walnut" },
+				{ name: "Everest Urgent Care", insurances: ["Independence"],school: ["St Joe"], address: "2077 Ridge Ave" },
+				{ name: "American Family Urgent Care", insurances: ["United Healthcare", "Aetna"],school: ["Lasalle", "PU"], address: "5708 Ridge Ave" },
+				{ name: "Mazzoni Center", insurances: ["none"],school: ["Temple", "CCP", "PU", "Drexel"], address: "1201 Locust St" }
+			];
+				const insurance = document.getElementById("insurance").value;
+				const school = document.getElementById("college").value;
+				let resultText = "";
+				if (insurance || school) {
+			// Filter clinics based on insurance and school
+			const filteredClinics = clinics.filter(clinic => {
+				const matchesInsurance = !insurance || clinic.insurances.includes(insurance);
+				const matchesSchool = !school || clinic.school.includes(school);
+				return matchesInsurance && matchesSchool;
+			});
+			
+			// Build result text
+			if (filteredClinics.length > 0) {
+				filteredClinics.forEach(clinic => {
+					resultText += ` Name: ${clinic.name}, Address: ${clinic.address} `;
+				});
+			} else {
+				resultText = "No clinics found for the selected criteria.";
+			}
+		} else {
+			resultText = "Please select an insurance or school.";
+		}
+		document.getElementById("result").innerText = resultText;
+		document.getElementById("result").style.display = "block";
+	}
+		</script>
+	</body>
+</html>
+		</script>
+	</body>
+	</html>
+	
